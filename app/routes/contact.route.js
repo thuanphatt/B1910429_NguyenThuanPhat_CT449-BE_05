@@ -16,4 +16,11 @@ router
   .get(contacts.findOne)
   .put(contacts.update)
   .delete(contacts.delete);
+
+// Define routes for managing favorite contacts
+router.route("/favorites").get(contacts.listFavorites);
+
+router.route("/favorites/add/:id").post(contacts.addFavorite);
+
+router.route("/favorites/remove/:id").post(contacts.removeFavorite);
 module.exports = router;
